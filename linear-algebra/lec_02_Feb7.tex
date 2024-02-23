@@ -1,0 +1,78 @@
+\lecturedate{Wednesday}{February}{7}
+\vorlesung{0}{Vector Spaces}
+
+\section{Recall from last class:}
+\begin{eg}
+    We showed that \(\mathbb{Z} /n\mathbb{Z} \) is a field if and only if \(n\) is prime. 
+\end{eg}
+\begin{explanation}
+    We have two cases
+    \begin{itemize}
+        \item[(i)] If \(n\) is primes we use Bezout's lemma to find inverses.
+        \item[(ii)] If \(n\) is composite, we get zero-divisors. 
+    \end{itemize}
+\end{explanation}
+
+\section{Ring Homomorphism}
+\begin{lemma}
+    Let \(F\) be a field. Then there exists a unique \(\phi \colon \mathbb{Z} \to F\) such that for all \(n,m \in \mathbb{Z} \)
+    \begin{itemize}
+        \item[(i)] \(\phi (1) = 1_F\)
+        \item[(ii)] \(\phi (n+m) = \phi (n) +_F \phi (m)\)
+        \item[(iii)] \(\phi (n\cdot m) = \phi (n) \cdot_F \phi (m)\)   
+    \end{itemize}  
+\end{lemma}
+\begin{proof}
+    We can construct \(\phi \) from these properties...
+\end{proof}
+\begin{note}
+    A function \(\phi \colon \mathbb{Z} \to \mathbb{F} \) (or from any ring) that satisfies (i), (ii), and (iii) is called a ring homomorphism.
+\end{note}
+
+\begin{lemma}
+    Let \(F\) be a field, Let \(\phi \colon \mathbb{Z} \to F \) be the ring homomorphism we just defined. Then either
+    \begin{itemize}
+        \item[(i)] \(\ker(\phi ) = \{ 0 \} \) if and only if \(\phi \) is injective, or
+        \item[(ii)] \(\ker(\phi ) = p\mathbb{Z} \) for some prime \(p\).
+    \end{itemize}
+\end{lemma}
+\begin{proof}
+    If \(\phi \) is injective... 
+\end{proof}
+
+\section{Characteristic}
+\begin{definition}
+    Let \(F\) be  field. Let \(\phi \colon \mathbb{Z} \to F\) be the unique ring homomorphism. If \(\phi \) is injective, then we say that \(F\) has characteristic \(0\). If \(\phi \) is not injective, then we say \(F\) has characteristic \(p\), where \(\ker(\phi ) = p\mathbb{Z} \).       
+\end{definition}
+
+\begin{eg}
+    \(\text{char}(\mathbb{C} ) = 0\) 
+\end{eg}
+\begin{eg}
+    \(\text{char}(\mathbb{R} ) = 0\) 
+\end{eg}
+\begin{eg}
+    \(\text{char}(\mathbb{Z} / 67\mathbb{Z}  ) = 67\) 
+\end{eg}
+
+\begin{lemma}
+    Suppose \(F\) is a finite field, then \(\phi \colon \mathbb{Z} \to F\) can not be injective, so \(F\) has prime characteristic.  
+\end{lemma}
+
+\begin{lemma}
+    If \(F\) has characteristic \(p\), then \(\underbrace{1_F + \cdots + 1_F}_{p \text{ times} } = 0\) and if \\ \(\underbrace{1_F + \cdots + 1_F}_{n \text{ times} } = 0\) then \(p\mid n\).
+\end{lemma}
+
+\section{Polynomials}
+\begin{definition}
+    A polynomial over a finite field \(F\) is a formal expression of the form \(a_n x^n + \cdots a_1 x + a_0\) where \(n \in \mathbb{N} \cup \{ 0 \} \) and \(a_i \in F\) for all \(0 \leq i \leq n\), and \(x \) is a formal variable.     
+\end{definition}
+\begin{note}
+    This is not a function like in 295.
+\end{note}
+\begin{definition}
+    The 0 polynomial is called the trivial polynomial.
+\end{definition}
+\begin{definition}
+    A nontrivial polynomial can be written as \(b(x) = b_0 + b_1 x + \cdots +  b_{\ell }  x^{\ell } \) with \(b_{\ell} \neq 0 \), we say \(b\) has degree \(\ell \).   
+\end{definition}

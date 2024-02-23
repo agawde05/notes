@@ -1,0 +1,87 @@
+\lecturedate{Monday}{February}{19}
+\vorlesung{4}{Algebraic Numbers}
+
+\section{Algebraic Numbers}
+\begin{definition}
+    Fix \(\alpha \in \mathbb{C} \). Define \(\mathbb{Q} [\alpha ] = \spann(\alpha ^i\mid i \in \mathbb{N} \cup \{ 0 \} )\) monomial powers of \(\alpha \). This is vector space over \(\mathbb{Q} \).   
+\end{definition}
+
+\begin{definition}
+    The element \(\alpha \in \mathbb{C} \) is algebraic provided that there exists a nonzero polynomial \(p \in \mathbb{Z}[x]\) such that \(p(\alpha )=0\).   
+\end{definition}
+\begin{eg}
+    \(\alpha = \sqrt{2} \) is algebraic with \(p(x) = x^2 - 2\).
+\end{eg}
+\begin{eg}
+    \(i \in \mathbb{C}  \) is algebraic with \(p(x) = x^2 + 1\).
+\end{eg}
+\begin{eg}
+    \(\pi \in \mathbb{C}  \) is not algebraic.
+\end{eg}
+
+\begin{definition}
+    If \(\alpha  \in \mathbb{C} \) is not algebraic, then \(\alpha \) is called transcendental.  
+\end{definition}
+\begin{eg}
+    \(\pi \in \mathbb{C} \) is transcendental. 
+\end{eg}
+
+\begin{lemma}
+     Let \(\alpha \in \mathbb{C} \). Then \(\mathbb{Q} [\alpha ]\) is finitely generated over \(\mathbb{Q} \) if and only if \(\alpha \) is algebraic.    
+\end{lemma}
+\begin{proof}
+    Suppose \(\mathbb{Q} [\alpha ]\) is finitely generated. Then there exists scalars \\ \(\overline{v_1} , \overline{v_2} ,\dots ,\overline{v_m} \in \mathbb{Q} [\alpha ] \) such that \(\mathbb{Q} [x] = \spann(\overline{v_1} , \overline{v_2} ,\dots ,\overline{v_m})\). For each \(1 \leq i \leq m\) we know \(\overline{v_i} \in \mathbb{Q} [\alpha ] \) so we can write
+    \[
+        \overline{v_i} = q_{i_{0}} + q_{i_{1}} \alpha ^{1} + \cdots + q_{i_{n_{1}}} \alpha ^{n_{i}}
+    \]
+    where we can assume \(q_{i_{n_{i}}} \neq 0\). To avoid this hellish notation let's replace this with 
+    \begin{align*}
+        \overline{v_1} =& \text{ mess}_1 \quad \text{deg } n_1  \\
+        \overline{v_2} =& \text{ mess}_2 \quad \text{deg } n_2  \\
+        &\vdots \\
+        \overline{v_m} =& \text{ mess}_m \quad \text{deg } n_m . \\
+    \end{align*}
+    Let \(M = \max\{ n_1,\dots ,n_m \} \). Since \(\alpha ^{M+1} \in \mathbb{Q} [\alpha ]\) there exist scalars \\ \(d_1, \dots ,d_m \in \mathbb{Q} \) such that \(\alpha ^{M+1} = d_1 \overline{v_1} + \cdots + d_m \overline{v_m}  \). Then \(\alpha ^{M+1} = d_1 (\text{mess}_1 ) + \cdots + d_m (\text{mess}_m ) = r_0 + r_1 \alpha ^1 + \cdots + r_M \alpha ^M  \) with \(r_i \in \mathbb{Q} \) by expanding all messes and collecting like terms in powers of \(\alpha \). Define \(p(x) = x^{M+1} - (r_0 + r_1 x ^1 + \cdots + r_M x ^M ) \). We can clear the denominators to get a nonzero polynomial \(\widetilde{p}(x) \in \mathbb{Z} [x]\) such that \(\widetilde{p}(\alpha ) = 0\), so \(\alpha \) is algebraic. 
+\end{proof}
+\begin{note}
+    This is only one direction of this proof, we will prove the other direction next time.
+\end{note}
+
+Recall from last time:
+\begin{lemma}
+    Let \(\alpha \in \mathbb{C} \). Then the vector space \(\mathbb{Q} [\alpha ]\coloneqq \spann_\mathbb{Q} (1, \alpha , \alpha ^2, \dots )\) is finitely generated over \(\mathbb{Q} \) if and only if \(\alpha \in \overline{\mathbb{Q} } \)   
+\end{lemma}
+\begin{proof}
+    Last time we showed the forward direction. We assumed \(\mathbb{Q} [\alpha ]\) is finitely generated and we found a nonzero polynomial \(\widetilde{p} \in \mathbb{Z} [x]\) such that \(\widetilde{p}(\alpha ) = 0\). We took a generating family \((\overline{v_1}, \dots , \overline{v_m}  )\), and for all \(1 \leq i \leq m\), there exist scalars in \(\mathbb{Q} \) such that \(\overline{v_i} = \underbrace{q_{i_{0}} + q_{i_{1}} \alpha ^{1} + \cdots + q_{i_{n_{1}}} \alpha ^{n_{i}}}_{\text{mess}_i }\). Let \(M=\max\{ n_1, n_2, \dots , n_m \} \). Consider \(\alpha ^{M+1} \in \mathbb{Q} [\alpha ]\). There exist scalars \(d_1, \dots , d_m \in \mathbb{Q} \) such that
+    \begin{align*}
+        \alpha ^{M+1} &= \alpha ^{M+1} = d_1 \overline{v_1} + \cdots + d_m \overline{v_m} \\
+        &= d_1 (\text{mess}_1 ) + \cdots + d_m (\text{mess}_m ) \\
+        &= r_0 + r_1 \alpha ^1 + \cdots + r_M \alpha ^M  \\
+    \end{align*} 
+    So \(0 = -\alpha ^{M+1} + r_0 + r_1 \alpha ^1 + \cdots + r_M \alpha ^M\). So defined \(p(x) = -x ^{M+1} + r_0 + r_1 x ^1 + \cdots + r_M x ^M\) and we multiplied out the denominators to get \(\widetilde{p} \in \mathbb{Z} [x]\).
+    
+    Now we need to prove the other direction, assume \(\alpha  \in \overline{\mathbb{Q}} \). We will begin with a motivating example.
+    \begin{eg}
+        Suppose \(\alpha \) is a root of \(x^5 - 67x^2 +3 =0\), how does this give us a generating family for \(\mathbb{Q} [x]\)?   
+    \end{eg} 
+    Let's continue with the proof. Since \(\alpha  \in \overline{\mathbb{Q} } \) there exist a nonzero \(p \in \mathbb{Z} [x]\) such that \(p(\alpha )=0\). We can write \(p(\alpha ) = a_0 + a_1 \alpha ^1 + \cdots a_N \alpha ^N\) with \(a_i \in \mathbb{Z} \) and \(a_N \neq 0\). So
+    \[
+        \alpha ^N = - \frac{a_0}{a_N} - \frac{a_1}{a_N} \alpha ^1 - \cdots - \frac{a_{N-1} }{a_N} \alpha ^{N-1} \qquad (*)
+    \]
+    We claim \(\underbrace{\mathbb{Q} [x]}_{\text{LHS} } = \underbrace{\spann(1,\alpha , \dots , \alpha ^{N-1})}_{\text{RHS} }\). We will show this by two-way containment. We have \(\text{LHS} \supseteq \text{RHS} \) immediately from definitions. To show \(\text{LHS} \subseteq  \text{RHS} \), fix \(\overline{v} \in \text{LHS} \) so \(\overline{v} = \sum_{i \in \mathbb{N} \cup \{ 0 \} } b_i \alpha ^i \) with \(b_i \in \mathbb{Q} \) and all but finitely many are zero. 
+    
+    Define the degree of \(\overline{v} \) to be \(\max\{ i \in \mathbb{N} \cup \{ 0 \} \mid b_i \neq 0  \} \), that is the greatest nonzero power. Note this is empty if \(\overline{v} = \overline{0}_V \). In this case \(\overline{v} \in \text{RHS} \) so we are done. Assume \(\overline{v} \neq \overline{0}_V \) so a maximum exists.
+    
+    We start with a nice case, if \(\deg(\overline{v} )< N\), we are done. Now let's tackle a harder case. For \(\deg(\overline{v} ) \geq N\) set \(j = \deg(\overline{v} ) - (N-1)\). Note \(j=1\) when \(\deg(\overline{v} ) = N\). We will induct on \(j\). So for our base case \(j=1\), we have \(deg(\overline{v} ) = N\). We want to show \(\overline{v} \in \text{RHS} \). By \((*)\), we may replace \(\alpha ^N\) in \(\overline{v} \) with the combination in \((*)\). Then \(\overline{v} \) is a linear combination of vectors in \((1, \alpha , \alpha ^2, \dots , \alpha ^{N-1})\) so we win!
+
+    Now we have our strong inductive hypothesis: Suppose that if \(1 \leq j < n\), then \(\overline{v}  \in \text{RHS} \). We will prove that if \(j=n\), then \(\overline{v} \in \text{RHS} \). Assume \(j=n\), so \(\deg(\overline{v} )-(N-1) = n\), or alternatively, \(\deg(\overline{v}) = n+(N-1)\). So we can write \(\overline{v} \) as 
+    \begin{align*}
+        \overline{v} &= b_{N-1+n} \alpha ^{N-1+n} + \overline{v}^{\prime} \\
+        &= b_{N-1+n}\cdot \alpha ^{n-1} \cdot \alpha ^N + \overline{v} ^{\prime}  \\ 
+    \end{align*}
+    with \(b_{N-1+n} \in \mathbb{Q} \setminus \{ 0 \}  \) and \(\deg(\overline{v}^{\prime} ) < N-1+n\). Now we can replace \(\alpha ^N\) with \((*)\) so
+    \[
+        \overline{v} = b_{N-1+n}\left[ - \frac{a_0}{a_N} - \frac{a_1}{a_N} \alpha ^1 - \cdots - \frac{a_{N-1} }{a_N} \alpha ^{N-1} \right] + \overline{v} ^{\prime} 
+    \] 
+    and by our inductive hypothesis \(\overline{v} \in \text{RHS} \). 
+\end{proof}
