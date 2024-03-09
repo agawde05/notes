@@ -1,0 +1,23 @@
+\lecturedate{Friday}{February}{23}
+\vorlesung{7}{Linear Transformations}
+
+\section{Recall from last class}
+\begin{lemma}[Steinitz Exchange Lemma]
+    Let \(V\) be a vector space over a field \(F\). Let \(X = (x_i \mid i \in I)\) be a finite linearly independent family of vectors in \(V\), and let \(Y = (y_j \mid j \in J)\) be a spanning family of vectors in \(V\). Then there exists an injective function \(f\colon I \to J\) such that \(V = \spann(X \cup (y_j \mid j \in J\setminus f(I)))\).
+\end{lemma}
+\begin{explanation}
+    We proved this last class.
+\end{explanation}
+As a consequence we have that \(\vert X \vert \leq \vert Y \vert  \). That is, the numver of vectors in a finite linearly independent family is less than or equal to the number of vectors in a spanning family.
+
+\begin{corollary}
+    Suppose \(V\) is a finitely generated vector space over \(F\) and let \(W \subseteq V\) be a subspace. Then
+    \begin{itemize}
+        \item[(i)] \(W\) is finitely generated
+        \item[(ii)] \(\dim(W)\leq \dim(V)\)
+        \item[(iii)] \(\dim(W) = \dim(V)\) if and only \(W=V\).
+    \end{itemize}
+\end{corollary}
+\begin{proof}
+    Let \(L\) be a linearly independent family of vectors in \(W\). Then \(\vert L \vert \leq \dim(V) \), since \(L\) is also linearly independent in \(V\). Note that \(L\) is necessarily finite. Consider the set of families \(\{ L \subseteq W \mid L \text{ is linearly independent}  \} \). We want to look at all of these linearly independent families and choose a maximal element of this set (with respect to inclusion, so there may be many). That is, we want to find a linear independent family \(K \subseteq W\) such that \(K\) is not properly contained in any other linearly independent family. Then by the very useful theorem, we will be done. (Once again we use the same argument of inclusion defining a partial order on this set of families, then repeatedly checking if our candidate family is contained in any other such family -- ask Sarah about how this terminates, is it because it terminates in V?). Let \(M\) be such an element. By VUT, \(M\) is a basis of \(W\), so \(\vert M \vert = \dim(W) \leq \dim(V)\).
+\end{proof}
