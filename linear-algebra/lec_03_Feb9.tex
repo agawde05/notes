@@ -1,3 +1,74 @@
 \lecturedate{Frieday}{February}{9}
 \vorlesung{2}{Vector Spaces}
 
+\section{Recall from last class}
+Last time we explored \(F[x]\), the ring of polynomials over a field \(F\). We arrived at some interesting results about their roots, specifically
+\begin{lemma}[Descartes]
+    Let \(\alpha  \in F\) and let \(p \in F[x]\) be nonzero. Then \(p(\alpha )=0\) if and only if there exists \(q \in F[x]\) with \(\deg(q)=\deg(p)-1\) such that \(p(x)=(x-\alpha )q(x)\).
+\end{lemma} 
+\begin{corollary}[\textcolor{green}{ask sarah}]
+    Let \(p \in F[x]\) be nonzero. Suppose \(\alpha_1 , \dots , \alpha _k \in F\) are roots of \(p\). Then
+    \begin{itemize}
+        \item[(i)] There exists \(q \in F[x]\) such that \(q(\alpha _i) \neq 0\) for all \(1\leq i\leq k\), and
+        \item[(ii)] There exist \(m_1, \dots , m_k \in \mathbb{N} \) such that \(p = (x-\alpha _1)^{m_1}(x-\alpha _2)^{m_2} \cdots \\ (x-\alpha _k)^{m_k}\).
+        \begin{remark}
+            \(m_i\) is called the multiplicity of \(\alpha _i\).
+        \end{remark}
+    \end{itemize}   
+\end{corollary}
+\begin{fact}
+    Let \(F\) be a finite field with characteristic \(p\). Then \(\vert F \vert = p^n \).
+\end{fact}
+
+\section{Vectors and Vector Spaces}
+What is a vector? A quantity? A scalar? Something with magnituede and direction? Starts at the origin? - 296ers.
+\begin{definition}[Vector]
+    A vector \(\overline{v} \) is an element of a vector space. 
+\end{definition}
+\begin{definition}[Vector Space]
+    Let \(F\) be a field (often called the field of scalars or the ground field). A vector space over the field \(F\) is a set \(V\) equipped with two operations
+    \begin{itemize}
+        \item[(i)] \(+\) from \(\colon V\times V\to V\) called vector addition 
+        \item[(ii)] \(\cdot \) from \(\colon F\times V \to V\) called scalar multiplication 
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item[(i)] \((V,+)\) is an abelian group. So \(+\) is commutative and associative, there exists a unique identity element \(\overline{0} \in V \), and we have unique additive inverses.   
+        \item[(ii)] For all \(c \in F\) for all \(\overline{v} _1 , \overline{v} _2 \in V\), we have \(c \cdot (\overline{v} _1 +\overline{v} _2) = c \cdot \overline{v} _1 + c \cdot \overline{v} _2\)   
+        \item[(iii)] For all \(c_1, c_2 \in F\) for all \(\overline{v} \in V\), we have \((c_1 + c_2)\cdot \overline{v} = c_1 \cdot \overline{v} +c_2 \cdot \overline{v} \).   
+        \item[(iv)] For all \(c_1, c_2 \in F\) for all \(\overline{v} \in V\), we have \((c_1 c_2)\cdot \overline{v} = c_1 \cdot  (c_2 \cdot \overline{v} )\). 
+        \item[(v)] For all \(\overline{v} \in V\), we have \(1_F \cdot \overline{v} = \overline{v} \).
+    \end{itemize}
+\end{definition}
+\begin{eg}
+    \(V=\mathbb{R}^n \) is a vector space over \(F=\mathbb{R} \) where \(\begin{pmatrix}
+         x_1 \\
+         \vdots \\
+         x_n \\
+    \end{pmatrix} + \begin{pmatrix}
+         y_1 \\
+         \vdots \\
+         y_n \\
+    \end{pmatrix} = \begin{pmatrix}
+         x_1 + y _1 \\
+         \vdots \\
+         x_n + y_n \\
+    \end{pmatrix}\) defines vector addition, and for all \(c \in \mathbb{R} \), scalar multiplication is defined as \(c \cdot \begin{pmatrix}
+         x_1 \\
+         \vdots \\
+         x_n \\
+    \end{pmatrix} = \begin{pmatrix}
+         cx_1 \\
+         \vdots \\
+         cx_n \\
+    \end{pmatrix}\).
+\end{eg}
+\begin{eg}
+    \(V=\mathbb{C} ^n\) is a vector space over \(F=\mathbb{R} \).
+\end{eg}
+\begin{question}
+    Given a field \(F\), is \(F\) a vector space over itself? 
+\end{question}
+\begin{explanation}
+    Yes TODOTODOTODOTODO
+\end{explanation}

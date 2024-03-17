@@ -1,12 +1,12 @@
 \lecturedate{Wednesday}{February}{7}
-\vorlesung{1}{Fields}
+\vorlesung{1}{Fields and Polynomials}
 
 \section{Recall from last class}
 \begin{eg}
 	We showed that \(\mathbb{Z} /n\mathbb{Z} \) is a field if and only if \(n\) is prime.
 \end{eg}
 \begin{explanation}
-	We have two cases
+	We have two cases.
 	\begin{itemize}
 		\item[(i)] If \(n\) is prime we use Bezout's lemma to find inverses.
 		\item[(ii)] If \(n\) is composite, we get zero-divisors. That is, if \(n\) is composite, there exist \(a,b\) with \(2\leq a\leq b\leq n-1\) such that \(n=ab\). So then we have \(ab \equiv 0 \mod n\) so \(a\) and \(b\) form a pair of zero divisors; that is, nonzero elements in \(\mathbb{Z} /n\mathbb{Z} \) whose product is \(0\).
@@ -47,10 +47,9 @@
 \end{proof}
 
 \section{Characteristic}
-\begin{definition}
+\begin{definition}[Characteristic]
 	Let \(F\) be a field. Let \(\phi \colon \mathbb{Z} \to F\) be the unique ring homomorphism. If \(\phi \) is injective, then we say that \(F\) has characteristic \(0\). If \(\phi \) is not injective, then we say \(F\) has characteristic \(p\), where \(\ker(\phi ) = p\mathbb{Z} \).
 \end{definition}
-
 \begin{eg}
 	\(\text{char}(\mathbb{C} ) = 0\)
 \end{eg}
@@ -60,7 +59,7 @@
 \begin{eg}
 	\(\text{char}(\mathbb{Z} / 67\mathbb{Z}  ) = 67\)
 \end{eg}
-\begin{eg}
+\begin{eg}[\textcolor{green}{ask sarah}]
     There are examples of infinite fields that have prime characteristic. Let \(F_2 = \mathbb{Z} /2\mathbb{Z} \), then we have
     \[
         F_2[x] \coloneqq \{ \text{polynomials with coefficients in } \mathbb{Z} /2\mathbb{Z} \text{ with variable } x \} 
@@ -74,7 +73,7 @@
 \end{lemma}
 
 \section{Polynomials}
-\begin{definition}
+\begin{definition}[Polynomial]
 	A polynomial over a finite field \(F\) is a formal expression of the form \(a_n x^n + \cdots a_1 x + a_0\) where \(n \in \mathbb{N} \cup \{ 0 \} \) and \(a_i \in F\) for all \(0 \leq i \leq n\), and \(x \) is a formal variable.
     \begin{note}
         This is not a function like in 295.
@@ -86,10 +85,16 @@
 \begin{definition}
 	The 0 polynomial is called the trivial polynomial.
 \end{definition}
-\begin{definition}
+\begin{definition}[Degree of a Polynomial]
 	A nontrivial polynomial can be written as \(b(x) = b_0 + b_1 x + \cdots +  b_{\ell }  x^{\ell } \) with \(b_{\ell} \neq 0 \). In this case, we say \(b\) has degree \(\ell \).
+	\begin{remark}
+		What should the degree of the trivial polynomial be? Some say \(-1\). Others \(-\infty \) to heuristically satisfy that for all \(p,q \in F[x]\)
+		\[
+			\deg(p\cdot q) = \deg(p) + \deg(q)
+		\]
+	\end{remark}
 \end{definition}
-\begin{definition}
+\begin{definition}[Polynomial Function]
     A polynomial function is a function \(F \to F\) that can be defined by evaluating a polynomial in \(F[x]\).  
 \end{definition}
 \begin{eg}
@@ -109,7 +114,7 @@
 \begin{proof}
     The backwards implication is immediate from evaluating the expression. For the forward implication, since \(p\) is nonzero and \(p(\alpha )=0\) we must have \(\deg(p)\geq 1\). Write \(p(x)=c_m x^m + \cdots + c_1 x + c_0\) with \(c_i \in F\). Then \(p(\alpha )=c_m \alpha^m + \cdots + c_1 \alpha + c_0\). So we have \(p(x) = p(x)-0 = p(x)-p(\alpha ) = c_m(x^m - \alpha ^m) + \cdots c_1 (x-\alpha )\). Then from homework this is \(=(x-\alpha )\underbrace{\sum_{i=1}^{m} c_i G_{i-1}(\alpha ,x)}_{q(x)}  \)  where we apply \(x^i - \alpha ^i = (x-\alpha ) \cdot  G_{i-1}(x,\alpha ) \) where \(G_{n} (\alpha ,x)= \sum_{k=0}^{n} x^n \alpha ^{n -k} \) to each term and factor out \((x-\alpha )\), leaving us with \(q(x)\) with \(\deg(q)=m-1\).
 \end{proof}
-\begin{definition}
+\begin{definition}[Root of a Polynomial]
     Let \(p \in F[x]\) be nonzero. The field element \(\alpha \in F\) is called a root or a zero of \(p\) provided that \(p(\alpha )= 0\).
 \end{definition}
 \begin{corollary}
