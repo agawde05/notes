@@ -3,76 +3,127 @@
 
 \section{Recall from last class}
 \begin{eg}
-    We showed that \(\mathbb{Z} /n\mathbb{Z} \) is a field if and only if \(n\) is prime. 
+	We showed that \(\mathbb{Z} /n\mathbb{Z} \) is a field if and only if \(n\) is prime.
 \end{eg}
 \begin{explanation}
-    We have two cases
-    \begin{itemize}
-        \item[(i)] If \(n\) is primes we use Bezout's lemma to find inverses.
-        \item[(ii)] If \(n\) is composite, we get zero-divisors. 
-    \end{itemize}
+	We have two cases
+	\begin{itemize}
+		\item[(i)] If \(n\) is prime we use Bezout's lemma to find inverses.
+		\item[(ii)] If \(n\) is composite, we get zero-divisors. That is, if \(n\) is composite, there exist \(a,b\) with \(2\leq a\leq b\leq n-1\) such that \(n=ab\). So then we have \(ab \equiv 0 \mod n\) so \(a\) and \(b\) form a pair of zero divisors; that is, nonzero elements in \(\mathbb{Z} /n\mathbb{Z} \) whose product is \(0\).
+		      \begin{note}
+			      This contradiction arises from something we proved in \(295\). If \(F\) is a field and \(a,b \in F\) such that \(ab=0\), then either \(a=0\) or \(b=0\). In other words, a field can not have zero divisors.
+		      \end{note}
+	\end{itemize}
 \end{explanation}
 
-\section{Ring Homomorphism}
+\section{Ring Homomorphisms}
 \begin{lemma}
-    Let \(F\) be a field. Then there exists a unique \(\phi \colon \mathbb{Z} \to F\) such that for all \(n,m \in \mathbb{Z} \)
-    \begin{itemize}
-        \item[(i)] \(\phi (1) = 1_F\)
-        \item[(ii)] \(\phi (n+m) = \phi (n) +_F \phi (m)\)
-        \item[(iii)] \(\phi (n\cdot m) = \phi (n) \cdot_F \phi (m)\)   
-    \end{itemize}  
+	Let \(F\) be a field. Then there exists a unique \(\phi \colon \mathbb{Z} \to F\) such that for all \(n,m \in \mathbb{Z} \)
+	\begin{itemize}
+		\item[(i)] \(\phi (1) = 1_F\)
+		\item[(ii)] \(\phi (n+m) = \phi (n) +_F \phi (m)\), that is \(\phi \) is a group homomorphism with respect to \(+\)
+		\item[(iii)] \(\phi (n\cdot m) = \phi (n) \cdot_F \phi (m)\).
+	\end{itemize}
+	\begin{lingo}
+		A function \(\phi \colon \mathbb{Z} \to F \) (or from any ring) that satisfies (i), (ii), and (iii) is called a ring homomorphism.
+	\end{lingo}
 \end{lemma}
 \begin{proof}
-    We can construct \(\phi \) from these properties...
+	We can construct \(\phi \) from these properties, building it from the ground up. To satisfy (i), we define \(\phi (i)\coloneqq 1_F\). Then by (ii), we have \(\phi (2)\coloneqq \phi (1+1) = \phi (1) +_F \phi (1) = 1_F +_F + 1_F\). Naturally, \(\phi (3) \coloneqq  1_F +_F 1_F +_F 1_F \) and so forth. So we define
+	\[
+		\phi (n)\coloneqq \underbrace{1_F +_f \cdots +_F 1_F}_{n \text{ times} }.
+	\]
+	We have that (1) and (2) hold by construction, and by some casework we have \(\phi (\underbrace{1+ \cdots +1}_{n\cdot m \text{ times} }) = \underbrace{1_F +_F \cdots +_F 1_F}_{n\cdot m \text{ times} } = \phi (n) \cdot_F \phi (m)\), satisfying (3). This construction is unique since it was completely determined by (1) and (2), and we got (3) as a consequence of using the ring \(\mathbb{Z} \), we can take this as a definition.
 \end{proof}
-\begin{note}
-    A function \(\phi \colon \mathbb{Z} \to \mathbb{F} \) (or from any ring) that satisfies (i), (ii), and (iii) is called a ring homomorphism.
-\end{note}
-
 \begin{lemma}
-    Let \(F\) be a field, Let \(\phi \colon \mathbb{Z} \to F \) be the ring homomorphism we just defined. Then either
-    \begin{itemize}
-        \item[(i)] \(\ker(\phi ) = \{ 0 \} \) if and only if \(\phi \) is injective, or
-        \item[(ii)] \(\ker(\phi ) = p\mathbb{Z} \) for some prime \(p\).
-    \end{itemize}
+	Let \(F\) be a field, Let \(\phi \colon \mathbb{Z} \to F \) be the ring homomorphism we just defined. Then either
+	\begin{itemize}
+		\item[(i)] \(\ker(\phi ) = \{ 0 \} \) if and only if \(\phi \) is injective, or
+		\item[(ii)] \(\ker(\phi ) = p\mathbb{Z} \) for some prime \(p\).
+	\end{itemize}
 \end{lemma}
 \begin{proof}
-    If \(\phi \) is injective... 
+	If \(\phi \) is injective, then \(\ker (\phi ) = \{ 0 \} \) (by homework). Suppose \(\phi \) is not injective. Then there exists \(n \in \mathbb{N} \) such that \(\ker (\phi ) = n\mathbb{Z} \). Write \(n=ab\) for some integers \(a,b\) such that \(1\leq a\leq b\leq n\), so \(\phi (n) = \phi (a) \cdot_F \phi (b)\). That is we have \(0_F = \phi (a) \cdot _F \phi (b) \) so \(\phi (a) =0\) or \(\phi (b) = 0\) without loss of generality.
 \end{proof}
 
 \section{Characteristic}
 \begin{definition}
-    Let \(F\) be  field. Let \(\phi \colon \mathbb{Z} \to F\) be the unique ring homomorphism. If \(\phi \) is injective, then we say that \(F\) has characteristic \(0\). If \(\phi \) is not injective, then we say \(F\) has characteristic \(p\), where \(\ker(\phi ) = p\mathbb{Z} \).       
+	Let \(F\) be a field. Let \(\phi \colon \mathbb{Z} \to F\) be the unique ring homomorphism. If \(\phi \) is injective, then we say that \(F\) has characteristic \(0\). If \(\phi \) is not injective, then we say \(F\) has characteristic \(p\), where \(\ker(\phi ) = p\mathbb{Z} \).
 \end{definition}
 
 \begin{eg}
-    \(\text{char}(\mathbb{C} ) = 0\) 
+	\(\text{char}(\mathbb{C} ) = 0\)
 \end{eg}
 \begin{eg}
-    \(\text{char}(\mathbb{R} ) = 0\) 
+	\(\text{char}(\mathbb{R} ) = 0\)
 \end{eg}
 \begin{eg}
-    \(\text{char}(\mathbb{Z} / 67\mathbb{Z}  ) = 67\) 
+	\(\text{char}(\mathbb{Z} / 67\mathbb{Z}  ) = 67\)
 \end{eg}
-
+\begin{eg}
+    There are examples of infinite fields that have prime characteristic. Let \(F_2 = \mathbb{Z} /2\mathbb{Z} \), then we have
+    \[
+        F_2[x] \coloneqq \{ \text{polynomials with coefficients in } \mathbb{Z} /2\mathbb{Z} \text{ with variable } x \} 
+    \]
+\end{eg}
 \begin{lemma}
-    Suppose \(F\) is a finite field, then \(\phi \colon \mathbb{Z} \to F\) can not be injective, so \(F\) has prime characteristic.  
+	Suppose \(F\) is a finite field, then \(\phi \colon \mathbb{Z} \to F\) can not be injective, so \(F\) has prime characteristic.
 \end{lemma}
-
 \begin{lemma}
-    If \(F\) has characteristic \(p\), then \(\underbrace{1_F + \cdots + 1_F}_{p \text{ times} } = 0\) and if \\ \(\underbrace{1_F + \cdots + 1_F}_{n \text{ times} } = 0\) then \(p\mid n\).
+	If \(F\) has characteristic \(p\), then \(\underbrace{1_F + \cdots + 1_F}_{p \text{ times} } = 0\) and if \\ \(\underbrace{1_F + \cdots + 1_F}_{n \text{ times} } = 0\) then \(p\mid n\).
 \end{lemma}
 
 \section{Polynomials}
 \begin{definition}
-    A polynomial over a finite field \(F\) is a formal expression of the form \(a_n x^n + \cdots a_1 x + a_0\) where \(n \in \mathbb{N} \cup \{ 0 \} \) and \(a_i \in F\) for all \(0 \leq i \leq n\), and \(x \) is a formal variable.     
-\end{definition}
-\begin{note}
-    This is not a function like in 295.
-\end{note}
-\begin{definition}
-    The 0 polynomial is called the trivial polynomial.
+	A polynomial over a finite field \(F\) is a formal expression of the form \(a_n x^n + \cdots a_1 x + a_0\) where \(n \in \mathbb{N} \cup \{ 0 \} \) and \(a_i \in F\) for all \(0 \leq i \leq n\), and \(x \) is a formal variable.
+    \begin{note}
+        This is not a function like in 295.
+    \end{note}
 \end{definition}
 \begin{definition}
-    A nontrivial polynomial can be written as \(b(x) = b_0 + b_1 x + \cdots +  b_{\ell }  x^{\ell } \) with \(b_{\ell} \neq 0 \), we say \(b\) has degree \(\ell \).   
+	The set of all polynomials with coefficients in \(F\) is denoted \(F[x]\).
 \end{definition}
+\begin{definition}
+	The 0 polynomial is called the trivial polynomial.
+\end{definition}
+\begin{definition}
+	A nontrivial polynomial can be written as \(b(x) = b_0 + b_1 x + \cdots +  b_{\ell }  x^{\ell } \) with \(b_{\ell} \neq 0 \). In this case, we say \(b\) has degree \(\ell \).
+\end{definition}
+\begin{definition}
+    A polynomial function is a function \(F \to F\) that can be defined by evaluating a polynomial in \(F[x]\).  
+\end{definition}
+\begin{eg}
+    To make the distinction between polynomials and polynomial functions clear, consider \(f,g \colon \mathbb{Z} /3\mathbb{Z} \to \mathbb{Z} /3\mathbb{Z} \) where \(f(x)=x^3 + x\) and \(g(x)=2x\). These are different polynomials, but the same function.
+\end{eg}
+\begin{lemma}
+    If \(p,q \in F[x]\) and \(c \in F\), then
+    \begin{itemize}
+        \item[(i)] \(p+q \in F[x]\)
+        \item[(ii)] \(p\cdot q \in F[x]\)
+        \item[(iii)] \(c \cdot p \in F[x]\).
+    \end{itemize}  
+\end{lemma}
+\begin{lemma}[Descartes]
+    Let \(\alpha  \in F\) and let \(p \in F[x]\) be nonzero. Then \(p(\alpha )=0\) if and only if there exists \(q \in F[x]\) with \(\deg(p)=\deg(q)+1\) such that \(p(x)=(x-\alpha )q(x)\).
+\end{lemma}
+\begin{proof}
+    The backwards implication is immediate from evaluating the expression. For the forward implication, since \(p\) is nonzero and \(p(\alpha )=0\) we must have \(\deg(p)\geq 1\). Write \(p(x)=c_m x^m + \cdots + c_1 x + c_0\) with \(c_i \in F\). Then \(p(\alpha )=c_m \alpha^m + \cdots + c_1 \alpha + c_0\). So we have \(p(x) = p(x)-0 = p(x)-p(\alpha ) = c_m(x^m - \alpha ^m) + \cdots c_1 (x-\alpha )\). Then from homework this is \(=(x-\alpha )\underbrace{\sum_{i=1}^{m} c_i G_{i-1}(\alpha ,x)}_{q(x)}  \)  where we apply \(x^i - \alpha ^i = (x-\alpha ) \cdot  G_{i-1}(x,\alpha ) \) where \(G_{n} (\alpha ,x)= \sum_{k=0}^{n} x^n \alpha ^{n -k} \) to each term and factor out \((x-\alpha )\), leaving us with \(q(x)\) with \(\deg(q)=m-1\).
+\end{proof}
+\begin{definition}
+    Let \(p \in F[x]\) be nonzero. The field element \(\alpha \in F\) is called a root or a zero of \(p\) provided that \(p(\alpha )= 0\).
+\end{definition}
+\begin{corollary}
+    Let \(p \in F[x]\) be nonzero. Then \(p\) has \(\leq \deg(p)\) roots in \(F\).   
+\end{corollary}
+\begin{proof}
+    Note that the statement holds if \(\deg(p)=0\). We will use induction on \(\deg(p)\). Let our candidate inductive set be \(S\coloneqq \{ n \in \mathbb{N} \mid \text{if } q \in F[x] \text{ is nonzero and has } \deg(q)\leq n \text{, then } q \text{ has } \leq \deg(q) \text{ roots}\} \). We have that \(1 \in S\), since polynomials of degree one are of the form \(q(x)=ax+b\) with \(a, b \in F\) and \(a \neq 0\), so we can just solve for the root. Suppose \(k \in S\) and let \(q \in F[x]\) be nonzero with degree \(k+1\). If \(q\) has no roots we are done. If \(q\) does have a root, we can use Descartes to write \(q(x) = (x-\alpha )\cdot r(x)\) where \(\deg(r) = \deg(q)-1 =k\), and so our statement holds by the inductive hypothesis and \(k+1 \in S\).
+\end{proof}
+\begin{lingo}
+    A field \(F\) is \emph{algebraically closed} provided that every nonconstant polynomial in \(F[x]\) has a root.   
+\end{lingo}
+\begin{remark}
+    \(\mathbb{C} \) is algebraically closed by the Fundamental Theorem of Algebra. We can build the closure of any field by "throwing in the roots", like \(\overline{\mathbb{Q}} \).
+\end{remark}
+\begin{eg}
+	Is \(\mathbb{Z} /2\mathbb{Z} \) algebraically closed? No, we have that \(x, x+1, x-1, x^2 +1, x^2 -1\) all have roots, but \(x^2 +x+1\) has no root in \(\mathbb{Z} /2\mathbb{Z} \). What does \(\overline{\mathbb{Z} /2\mathbb{Z} } \), the smallest algebraically closed field containing \(\mathbb{Z} /2\mathbb{Z} \) look like?     
+\end{eg}
