@@ -59,12 +59,57 @@
 \begin{eg}
 	\(\text{char}(\mathbb{Z} / 67\mathbb{Z}  ) = 67\)
 \end{eg}
-\begin{eg}[\textcolor{green}{ask sarah}]
-    There are examples of infinite fields that have prime characteristic. Let \(F_2 = \mathbb{Z} /2\mathbb{Z} \), then we have
+\begin{eg}
+    There are examples of infinite fields that have prime characteristic. Let's start with \(F_p = \mathbb{Z} /p\mathbb{Z} \). Then we have the ring
     \[
-        F_2[x] \coloneqq \{ \text{polynomials with coefficients in } \mathbb{Z} /2\mathbb{Z} \text{ with variable } x \} 
+        F_p[x] \coloneqq \{ \text{polynomials with coefficients in } \mathbb{Z} /p\mathbb{Z} \text{ with variable } x \} 
     \]
+	Here are some definitions and theorems that are literally only for the purpose of this example.
+	\begin{definition}[{Integral Domain [Hungerford]}]
+		A commutative ring \(R\) with identity \(1_R \neq 0\) and no zero divisors is called an integral domain.
+	\end{definition}
+	\begin{definition}[{[Hungerford]}]
+		A nonempty subset \(S\) of a ring \(R\) is multiplicative provided that \(a,b \in S\) implies \(ab \in S\).    
+	\end{definition}
+	\begin{theorem}[{[Hungerford]}]
+		Let \(S\) be a multiplicative subset of a commutative ring \(R\). The relation defined on the set \(R\times S\) by
+		\[
+			(r,s) \sim (r^{\prime} ,s^{\prime} ) \text{ if and only if } s_i (rs^{\prime} -r^{\prime} s)=0 \text{ for some } s \in S  
+		\]
+		is an equivalence relation. Furthermore if \(R\) has no zero divisors and \(0 \notin S\), then
+		\[
+			(r,s) \sim (r^{\prime} ,s^{\prime} ) \text{ if and only if } rs^{\prime} -r^{\prime} s=0. 
+		\] 
+	\end{theorem}
+	\begin{proof}
+		You do it. Not me. Or see Hungerford Chapter III Theorem 4.2. This is not really not part of this class. I will not do it.
+	\end{proof}
+	\begin{theorem}[{[Hungerford]}]
+		Denote the equivalence class \((r,s) \in R\times S\) by \(r/s\). Let \(S^{-1} R\) be the set of all equivalence classes of \(R\times S\) under the equivalence relation \(\sim \) above.
+		\begin{itemize}
+			\item[(i)] \(S^{-1} R\) is a commutative ring with identity, where addition and multiplication are defined by 
+			\[
+				r/s + r^{\prime} /s^{\prime}  = (rs^{\prime} +r^{\prime} s)/ss^{\prime} \text{ and } (r/s)(r^{\prime} /s^{\prime} ) = rr^{\prime} /ss^{\prime} . 
+			\]
+			\item[(ii)] If \(R\) is a nonzero ring with no zero divisors and \(0 \in S\), then \(S^{-1} R\) is an integral domain.   
+			\item[(iii)] If \(R\) is a nonzero ring with no zero divisors and \(S\) is the set of all nonzero elements of \(R\), then \(S^{-1} R\) is a field.    
+		\end{itemize}
+	\end{theorem}
+	\begin{proof}
+		You do this one too. Not me. Or see Hungerford Chapter III Theorem 4.3. This is still not part of this class.
+	\end{proof}
+	\begin{definition}[{Ring of Quotients [Hungerford]}]
+		The ring \(S^{-1} R\) is called the ring of quotients (often ring of fractions or quotient ring) of \(R\) by \(S\). In the case where \(S\) is the set of all nonzero elements in an integral domain \(R\), then \(S^{-1} R\) is a field called the quotient field (often field of fractions) of the integral domain \(R\).
+	\end{definition}
+	Let \(R(x)\) be the quotient field of \(R[x]\). To make this more understandable,
+	\[
+		R(x) = \{ p/q \mid p \in R[x], q \in R[x]\setminus \{ 0 \}  \}.
+	\]
+	This is an infinite field. So \(F_p(x)\) is an infinite field with characteristic \(p\).   
 \end{eg}
+\begin{explanation}
+	It is up to you to prove all the assumptions above. That is, you should prove that the polynomials in one variable over a field form a ring, and further, an integral domain. You should verify the aforementioned theorems. You should prove that the characteristic of \(F_p(x)\) is \(p\). It really is not part of this class. It is just a good example. I will not do it. I will not do it. I will not do it.
+\end{explanation}
 \begin{lemma}
 	Suppose \(F\) is a finite field, then \(\phi \colon \mathbb{Z} \to F\) can not be injective, so \(F\) has prime characteristic.
 \end{lemma}
@@ -132,3 +177,4 @@
 \begin{eg}
 	Is \(\mathbb{Z} /2\mathbb{Z} \) algebraically closed? No, we have that \(x, x+1, x-1, x^2 +1, x^2 -1\) all have roots, but \(x^2 +x+1\) has no root in \(\mathbb{Z} /2\mathbb{Z} \). What does \(\overline{\mathbb{Z} /2\mathbb{Z} } \), the smallest algebraically closed field containing \(\mathbb{Z} /2\mathbb{Z} \) look like?     
 \end{eg}
+

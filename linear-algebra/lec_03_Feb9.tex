@@ -6,11 +6,11 @@ Last time we explored \(F[x]\), the ring of polynomials over a field \(F\). We a
 \begin{lemma}[Descartes]
     Let \(\alpha  \in F\) and let \(p \in F[x]\) be nonzero. Then \(p(\alpha )=0\) if and only if there exists \(q \in F[x]\) with \(\deg(q)=\deg(p)-1\) such that \(p(x)=(x-\alpha )q(x)\).
 \end{lemma} 
-\begin{corollary}[\textcolor{green}{ask sarah}]
+\begin{corollary}[\textcolor{green}{still ask sarah, can't we just take \(q=1\), what are we really saying here?}]
     Let \(p \in F[x]\) be nonzero. Suppose \(\alpha_1 , \dots , \alpha _k \in F\) are roots of \(p\). Then
     \begin{itemize}
         \item[(i)] There exists \(q \in F[x]\) such that \(q(\alpha _i) \neq 0\) for all \(1\leq i\leq k\), and
-        \item[(ii)] There exist \(m_1, \dots , m_k \in \mathbb{N} \) such that \(p = (x-\alpha _1)^{m_1}(x-\alpha _2)^{m_2} \cdots \\ (x-\alpha _k)^{m_k}\).
+        \item[(ii)] There exist \(m_1, \dots , m_k \in \mathbb{N} \) such that \(p = (x-\alpha _1)^{m_1}(x-\alpha _2)^{m_2} \cdots \\ (x-\alpha _k)^{m_k} \cdot q\).
         \begin{remark}
             \(m_i\) is called the multiplicity of \(\alpha _i\).
         \end{remark}
