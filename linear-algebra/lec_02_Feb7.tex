@@ -100,15 +100,18 @@
 	\end{proof}
 	\begin{definition}[{Ring of Quotients [Hungerford]}]
 		The ring \(S^{-1} R\) is called the ring of quotients (often ring of fractions or quotient ring) of \(R\) by \(S\). In the case where \(S\) is the set of all nonzero elements in an integral domain \(R\), then \(S^{-1} R\) is a field called the quotient field (often field of fractions) of the integral domain \(R\).
+		\begin{remark}
+			This is the same construction we used to create \(\mathbb{Q} \) from \(\mathbb{Z} \).
+		\end{remark}
 	\end{definition}
 	Let \(R(x)\) be the quotient field of \(R[x]\). To make this more understandable,
 	\[
 		R(x) = \{ p/q \mid p \in R[x], q \in R[x]\setminus \{ 0 \}  \}.
 	\]
-	This is an infinite field. So \(F_p(x)\) is an infinite field with characteristic \(p\).   
+	We call \(R(x)\) the field of rational functions over \(R\). This is an infinite field. So the field of rational functions \(F_p(x)\) over \(F_p\) forms an infinite field with characteristic \(p\).   
 \end{eg}
 \begin{explanation}
-	It is up to you to prove all the assumptions above. That is, you should prove that the polynomials in one variable over a field form a ring, and further, an integral domain. You should verify the aforementioned theorems. You should prove that the characteristic of \(F_p(x)\) is \(p\). It really is not part of this class. It is just a good example. I will not do it. I will not do it. I will not do it.
+	It is up to you to prove all the assumptions above. That is, you should prove that the polynomials in one variable over a field form a ring, and further, an integral domain. You should verify the aforementioned theorems. You should show that \(R(x)\) is indeed infinite. You should prove that the characteristic of \(F_p(x)\) is \(p\). It really is not part of this class. It is just a good example. I will not do it. I will not do it. I will not do it.
 \end{explanation}
 \begin{lemma}
 	Suppose \(F\) is a finite field, then \(\phi \colon \mathbb{Z} \to F\) can not be injective, so \(F\) has prime characteristic.
